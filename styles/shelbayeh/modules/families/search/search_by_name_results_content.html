@@ -1,0 +1,7 @@
+<tr>
+    <td><?php echo($family["id"])?></td>
+    <td><a href="index.php?page=families&mode=2&fid=<?php echo($family['id'])?>"><?php echo($family["name"])?></a></td>
+    <td><?php if($family["address"] == null){echo "<i>Not Available</i>";} else {echo $family["address"];}?></td>
+    <td><?php if($family["phone_number"] == null){echo "<i>Not Available</i>";} else {echo $family["phone_number"];}?></td>
+    <td><?php if($family["mobile_number"] == null){echo "<i>Not Available</i>";} else {echo $family["mobile_number"];}?></td>
+</tr>

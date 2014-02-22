@@ -1,0 +1,22 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Allergies
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+<strong>Food Allergies: </strong>
+<button type="button" class="btn btn-warning" disabled="disabled" style="opacity: 1"><?php if($patient["food_allergies"] == null){echo "None";}else{echo $patient["food_allergies"];}?></button>
+
+<br/>
+<br/>
+
+<strong>Medicine Allergies: </strong>
+<button type="button" class="btn btn-danger" disabled="disabled" style="opacity: 1"><?php if($patient["medicine_allergies"] == null){echo "None";}else{echo $patient["medicine_allergies"];}?></button>
+
+      </div>
+    </div>
+  </div>

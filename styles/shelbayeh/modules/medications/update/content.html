@@ -1,0 +1,12 @@
+<?php 
+
+if($medication["category_id"] == $inner_category['id']){
+?>
+
+<option value="<?php echo $inner_category['id']?>" selected><?php echo $inner_category['id']?>. <?php echo $inner_category['name']?></option>
+
+<?php } else { ?>
+
+<option value="<?php echo $inner_category['id']?>"><?php echo $inner_category['id']?>. <?php echo $inner_category['name']?></option>
+
+<?php } ?>

@@ -1,0 +1,35 @@
+<tr>
+	<td><?php echo($family["id"])?></td>
+    <td><a href="index.php?page=families&mode=2&fid=<?php echo($family['id'])?>"><?php echo($family["name"])?></a></td>
+    <td><?php if($family["address"] == null){echo "<i>Not Available</i>";} else {echo $family["address"];}?></td>
+    <td><?php if($family["phone_number"] == null){echo "<i>Not Available</i>";} else {echo $family["phone_number"];}?></td>
+    <td><?php if($family["mobile_number"] == null){echo "<i>Not Available</i>";} else {echo $family["mobile_number"];}?></td>
+    <td>
+    	<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal_<?php echo($family['id'])?>">Delete</button>
+    </td>
+</tr>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal_<?php echo($family['id'])?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Confirm Deletion</h4>
+			</div>
+      
+			<div class="modal-body">
+				Are you sure you want to delete this family from the database?
+				<br/>
+				<strong>Note: </strong> All members associated with this family will be deleted as well.
+			</div>
+      
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<a href="index.php?page=families&mode=5&fid=<?php echo($family['id'])?>">
+					<button type="button" class="btn btn-primary">Delete</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

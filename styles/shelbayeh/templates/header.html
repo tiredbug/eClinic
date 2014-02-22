@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">    
+        <title><?php echo $site_title?></title>
+    
+        <!-- CSS -->
+        <link href="styles/shelbayeh/css/bootstrap.css" rel="stylesheet">
+        <link href="styles/shelbayeh/css/style.css" rel="stylesheet">
+        
+        <script type="text/javascript" src="styles/shelbayeh/js/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.edit"
+         });
+        </script>
+        <script type="text/javascript">
+			function assignMedication(){		
+				var medication = document.getElementById("medications_dropdown").value;
+				var editorContent = tinyMCE.get('treatment').getContent();
+				
+				
+				if(editorContent == '' || editorContent == null || editorContent == '<div>&nbsp;</div>'){
+					tinymce.get('treatment').setContent(medication);
+				}
+				
+				else{
+					tinymce.get('treatment').setContent(editorContent + medication);
+				}
+			}
+			
+			function calculateBMI(){
+				var weight = document.getElementById("weight").value;
+				var heightInCM = document.getElementById("height").value;
+				var height = heightInCM/100;
+				var bmi_notRounded = (weight/Math.pow(height,2));
+				var bmi = Math.round(bmi_notRounded * 10) / 10;
+				
+				document.getElementById("bmi").value = bmi;
+			}
+	   </script> 
+       
+		<script type="text/javascript">
+        
+        tinyMCE.init({
+            selector: "textarea.treatment",
+            menubar:false,
+            statusbar: false,
+            toolbar: false,
+        });
+        </script>     
+	</head>
+
+	<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php"><?php echo $site_title?></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Home</a></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Families <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              	<li><a href="index.php?page=families">List registered families</a></li>
+                <li><a href="index.php?page=families&mode=2">Search by a Family ID</a></li>
+                <li><a href="index.php?page=families&mode=6">Search by a Family Name</a></li>
+                <li><a href="index.php?page=families&mode=3">Create a new family</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Patients <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.php?page=patients&mode=1">Search by a Patient ID</a></li>
+                <li><a href="index.php?page=patients&mode=7">Search by a Patient Name</a></li>
+                <li><a href="index.php?page=patients&mode=4">Create a new patient</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visits <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.php?page=visits&mode=5">Search by a Visit ID</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medications <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.php?page=medications&mode=1">List registered medications</a></li>
+                <li><a href="index.php?page=medications&mode=2">Create a new category</a></li>
+                <li><a href="index.php?page=medications&mode=5">Register a new medication</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">

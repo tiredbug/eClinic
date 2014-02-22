@@ -1,0 +1,22 @@
+<a href="index.php?page=patients&mode=4&fid=<?php echo $_GET['fid']?>"><button class="btn btn-success">New Member</button></a>
+<button class="btn btn-primary" data-toggle="modal" data-target="#updateModal">Update</button>
+<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+<br/>
+<br/>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Family Information</h3>
+	</div>
+	
+	<div class="panel-body">
+		<strong>Name: </strong><?php echo($family["name"])?>
+		<br/>
+		<strong>Address: </strong><?php if($family["address"] == null){echo "<i>Not Available</i>";} else {echo $family["address"];}?>
+		<br/>
+		<strong>Phone: </strong><?php if($family["phone_number"] == null){echo "<i>Not Available</i>";} else {echo $family["phone_number"];}?>
+		<br/>
+		<strong>Mobile: </strong><?php if($family["mobile_number"] == null){echo "<i>Not Available</i>";} else {echo $family["mobile_number"];}?>
+	</div>
+</div>

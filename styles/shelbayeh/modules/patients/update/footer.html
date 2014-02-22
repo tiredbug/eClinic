@@ -1,0 +1,125 @@
+    </select>
+ 	</div>	
+    
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" value="<?php echo $patient['name']?>">
+  </div>
+  
+  <div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <input type="date" class="form-control" id="dob" name="dob" value="<?php echo $patient['dob']?>">
+  </div>
+  
+  <div class="form-group">
+    <label for="sex">Sex</label>
+    <select class="form-control" name="sex" id="sex">
+    	<?php if($patient["sex"] == "Male"){?>
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+        <?php } else {?>
+            <option value="Male">Male</option>
+            <option value="Female" selected>Female</option>
+        <?php } ?>
+    </select>
+  </div>
+  </div>
+  </div>
+  
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Detailed Information</h3>
+  </div>
+  <div class="panel-body">
+  <div class="form-group">
+    <label for="smoking">Smoking</label>
+    <select class="form-control" name="smoking" id="smoking">
+    	<?php if($patient["smoking"] == 0){?>
+            <option value="0" selected>No</option>
+            <option value="1">Yes</option>
+        <?php } else {?>
+            <option value="0">No</option>
+            <option value="1" selected>Yes</option>
+        <?php } ?>
+
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="weight">Weight</label>
+    <input type="number" class="form-control" id="weight" name="weight" value="<?php echo $patient['weight']?>" onChange="calculateBMI();">
+  </div>
+  
+  <div class="form-group">
+    <label for="height">Height</label>
+    <input type="number" class="form-control" id="height" name="height" value="<?php echo $patient['height']?>" onChange="calculateBMI();">
+  </div>
+  
+  <div class="form-group">
+    <label for="bmi">Body Mass Index</label>
+    <input type="text" class="form-control" id="bmi" name="bmi" value="<?php echo $patient['bmi']?>" readonly>
+  </div>
+   
+  <div class="form-group">
+    <label for="blood_group">Blood Group</label>
+    <select class="form-control" name="blood_group" id="blood_group">
+		<?php if($patient["blood_group"] == "O-"){?> <option value="O-" selected>O-</option> <?php } else { ?> <option value="O-">O-</option> <?php } ?>
+		<?php if($patient["blood_group"] == "O+"){?> <option value="O+" selected>O+</option> <?php } else { ?> <option value="O+">O+</option> <?php } ?>
+		<?php if($patient["blood_group"] == "A-"){?> <option value="A-" selected>A-</option> <?php } else { ?> <option value="A-">A-</option> <?php } ?>
+		<?php if($patient["blood_group"] == "A+"){?> <option value="A+" selected>A+</option> <?php } else { ?> <option value="A+">A+</option> <?php } ?>
+		<?php if($patient["blood_group"] == "B-"){?> <option value="B-" selected>B-</option> <?php } else { ?> <option value="B-">B-</option> <?php } ?>
+		<?php if($patient["blood_group"] == "B+"){?> <option value="B+" selected>B+</option> <?php } else { ?> <option value="B+">B+</option> <?php } ?>
+		<?php if($patient["blood_group"] == "AB-"){?> <option value="AB-" selected>AB-</option> <?php } else { ?> <option value="AB-">AB-</option> <?php } ?>
+		<?php if($patient["blood_group"] == "AB+"){?> <option value="AB+" selected>AB+</option> <?php } else { ?> <option value="AB+">AB+</option> <?php } ?>
+    </select>
+  </div>
+  </div>
+  </div>
+  
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Medical Information</h3>
+  </div>
+  <div class="panel-body">
+  <div class="form-group">
+    <label for="food_allergies">Food Allergies</label>
+    <input type="text" class="form-control" id="food_allergies" name="food_allergies" value="<?php echo $patient['food_allergies']?>">
+  </div>
+  
+  <div class="form-group">
+    <label for="medicine_allergies">Medicine Allergies</label>
+    <input type="text" class="form-control" id="medicine_allergies" name="medicine_allergies" value="<?php echo $patient['medicine_allergies']?>">
+  </div>
+  
+  <div class="form-group">
+    <label for="immunizations_history">Immunizations History</label>
+    <input type="text" class="form-control" id="immunizations_history" name="immunizations_history" value="<?php echo $patient['immunizations_history']?>">
+  </div>
+  
+  <div class="form-group">
+    <label for="medication_history">Medication History</label>
+    <input type="text" class="form-control" id="medication_history" name="medication_history" value="<?php echo $patient['medication_history']?>">
+  </div>
+  </div></div>
+  
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Surgical Procedures and Medical History</h3>
+  </div>
+  <div class="panel-body">
+    <textarea class="form-control" id="surgical_procedures_medical_history" name="surgical_procedures_medical_history"><?php echo $patient['surgical_procedures_medical_history']?></textarea>
+</div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    
+</form>
+
+
+  
+  

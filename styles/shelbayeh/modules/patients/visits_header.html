@@ -1,0 +1,47 @@
+<a href="index.php?page=visits&mode=2&patientID=<?php echo $_GET['patientID']?>"><button class="btn btn-success">New Visit</button></a>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#updateModal">Update</button>
+
+<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Deletion</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this patient from the database?
+        <br/>
+        <strong>Note: </strong> All visits associated with this patient will be deleted as well.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="index.php?page=patients&mode=6&patientID=<?php echo($_GET['patientID'])?>&familyID=<?php echo($patient['family_id'])?>"><button type="button" class="btn btn-primary">Delete</button></a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<br/>
+<br/>
+
+<ul class="nav nav-tabs">
+  <li><a href="index.php?page=patients&mode=2&patientID=<?php echo $_GET['patientID']?>">Profile</a></li>
+  <li class="active"><a href="#">Visits</a></li>
+</ul>
+
+<br/>
+
+<table class="table table-hover">
+    <thead>
+    	<tr>
+        	<th style="width: 10%;">Date</th>
+            <th>Diagnosis</th>
+            <th>Treatment</th>
+        </tr>
+    </thead>
+    
+    <tbody>

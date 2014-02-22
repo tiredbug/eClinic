@@ -1,0 +1,135 @@
+<a href="index.php?page=visits&mode=2&patientID=<?php echo $_GET['patientID']?>"><button class="btn btn-success">New Visit</button></a>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#updateModal">Update</button>
+
+<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Deletion</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this patient from the database?
+        <br/>
+        <strong>Note: </strong> All visits associated with this patient will be deleted as well.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="index.php?page=patients&mode=6&patientID=<?php echo($_GET['patientID'])?>&familyID=<?php echo($patient['family_id'])?>"><button type="button" class="btn btn-primary">Delete</button></a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<br/>
+<br/>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Profile</a></li>
+  <li><a href="index.php?page=patients&mode=3&patientID=<?php echo $patient['id']?>">Visits</a></li>
+</ul>
+
+<br/>
+
+<div class="panel-group">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Basic Information</h3>
+  </div>
+  <div class="panel-body">
+<table style="width: 100%">
+	<tr>
+    	<td><strong>Name: </strong><button type="button" class="btn btn-primary" disabled><?php echo $patient["name"]?></button></td>
+        <td><strong>ID: </strong><button type="button" class="btn btn-primary" disabled><?php echo $patient["id"]?></button></td>
+        <td><strong>Family ID: </strong><a href="index.php?page=families&mode=2&familyID=<?php echo $patient['family_id']?>"><button type="button" class="btn btn-primary"><?php echo $patient["family_id"]?></button></a></td>
+        <td><strong>Date of Birth: </strong><button type="button" class="btn btn-primary" disabled><?php echo $patient["dob"]?></button></td>
+        <td><strong>Sex: </strong><button type="button" class="btn btn-primary" disabled><?php echo $patient["sex"]?></button></td>
+     </tr>
+</table>
+  </div>
+</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseOne">
+          Detailed Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">     
+     <table style="width: 100%">
+     <tr>
+     
+     	<td><strong>Weight: </strong><button type="button" class="btn btn-success" disabled><?php echo $patient["weight"]?></button></td>
+        
+        <td><strong>Height: </strong><button type="button" class="btn btn-success" disabled><?php echo $patient["height"]?></button></td>
+                
+        <td><strong>BMI: </strong><button type="button" class="btn btn-success" disabled><?php echo $patient["bmi"]?></button></td>    
+                
+        <td><strong>Blood Group: </strong><button type="button" class="btn btn-success" disabled><?php echo $patient["blood_group"]?></button></td>
+ 
+     	<td><strong>Smoking: </strong><button type="button" class="btn btn-success" disabled><?php if($patient["smoking"] == 0){echo "No";}else{echo "Yes";}?></button></td>
+     </tr>
+</table>
+</div></div></div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseTwo">
+          Medical Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+
+<strong>Food Allergies: </strong>
+<button type="button" class="btn btn-warning" disabled="disabled" style="opacity: 1"><?php if($patient["food_allergies"] == null){echo "None";}else{echo $patient["food_allergies"];}?></button>
+
+<br/>
+<br/>
+
+<strong>Medicine Allergies: </strong>
+<button type="button" class="btn btn-danger" disabled="disabled" style="opacity: 1"><?php if($patient["medicine_allergies"] == null){echo "None";}else{echo $patient["medicine_allergies"];}?></button>
+
+<br/>
+<br/>
+
+<strong>Immunizations History: </strong>
+<button type="button" class="btn btn-default" disabled="disabled" style="opacity: 1"><?php if($patient["immunizations_history"] == null){echo "None";}else{echo $patient["immunizations_history"];}?></button>
+
+<br/>
+<br/>
+
+<strong>Medication History: </strong>
+<button type="button" class="btn btn-default" disabled="disabled" style="opacity: 1"><?php if($patient["medication_history"] == null){echo "None";}else{echo $patient["medication_history"];}?></button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Surgical Procedures and Medical History
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+
+<?php if($patient["surgical_procedures_medical_history"] == null){echo "None";}else{echo $patient["surgical_procedures_medical_history"];}?>
+
+      </div>
+    </div>
+  </div>
+</div>
+

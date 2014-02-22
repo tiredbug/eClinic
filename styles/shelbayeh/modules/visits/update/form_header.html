@@ -1,0 +1,100 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Update Visit
+        </a>
+        <small>(<?php echo $visit['date_time']?>)</small>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in">
+      <div class="panel-body">
+      <form method="post" action="index.php?page=visits&mode=3&status=2">
+      
+      
+           <table style="width: 100%">
+           <input type="hidden" name="id" value="<?php echo $visit['id']?>">
+           <input type="hidden" name="patient_id" value="<?php echo $visit['patient_id']?>">
+
+         <tr>
+         	<td colspan="7">
+            	<strong>Date and Time:</strong><input type="date" class="form-control" name="date_time" value="<?php echo $visit['date_time']?>">
+            </td>
+         </tr>
+         <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr>
+     	<td><strong>&deg;C: </strong><input type="text" class="form-control" name="temperature" value="<?php echo $visit['temperature']?>"></td>
+        <td><strong>BP: </strong><input type="text" class="form-control" name="bp" value="<?php echo $visit['bp']?>"></td>
+        <td><strong>Pulse: </strong><input type="number" class="form-control" name="pulse" value="<?php echo $visit['pulse']?>"></td>
+        <td><strong>RR: </strong><input type="number" class="form-control" name="respiratory_rate" value="<?php echo $visit['respiratory_rate']?>"></td>
+     
+     	<td><strong>W: </strong><input type="number" class="form-control" name="weight" id="weight" value="<?php echo $visit['weight']?>" onChange="calculateBMI();"></td>
+        
+        <td><strong>H: </strong><input type="number" class="form-control" name="height" id="height" value="<?php echo $visit['height']?>" onChange="calculateBMI();"></td>
+                
+        <td><strong>BMI: </strong><input type="text" class="form-control" name="bmi" id="bmi" value="<?php echo $visit['bmi']?>" readonly></td>    
+     </tr>
+     
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr><td colspan="7">
+            <strong>Main Complaints: </strong><input type="text" class="form-control" name="main_complaints" value="<?php echo $visit['main_complaints']?>">
+     </td>
+     </tr>
+
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr><td colspan="7">
+            <strong>Physical Examination: </strong>
+            
+            <table class="table table-bordered">
+            	<tr>
+            		<th style="width: 15%;">Body Area</th>
+            		<th>Examination</th>
+            	</tr>
+            	<tr>
+            		<td>Head and Face</td>
+            		<td><input type="text" class="form-control" name="headandface_exam" value="<?php echo $visit_examination[0]?>"></td>
+            	</tr>
+            	<tr>
+            		<td>Heart</td>
+            		<td><input type="text" class="form-control" name="heart_exam" value="<?php echo $visit_examination[1]?>"></td>
+            	</tr>
+            	<tr>
+            		<td>Chest</td>
+            		<td><input type="text" class="form-control" name="chest_exam" value="<?php echo $visit_examination[2]?>"></td>
+            	</tr>
+            	<tr>
+            		<td>Abdomen</td>
+            		<td><input type="text" class="form-control" name="abdomen_exam" value="<?php echo $visit_examination[3]?>"></td>
+            	</tr>
+            	<tr>
+            		<td>Limbs</td>
+            		<td><input type="text" class="form-control" name="limbs_exam" value="<?php echo $visit_examination[4]?>"></td>
+            	</tr>
+            	<tr>
+            		<td>Others</td>
+            		<td><input type="text" class="form-control" name="others_exam" value="<?php echo $visit_examination[5]?>"></td>
+            	</tr>
+			</table>
+		</td>
+     </tr>
+ 
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr><td colspan="7">
+            <strong>Lab Study: </strong><input type="text" class="form-control" name="lab_study" value="<?php echo $visit['lab_study']?>">
+     </td>
+     </tr>
+              
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr><td colspan="7">
+            <strong>Diagnosis: </strong><input type="text" class="form-control" name="diagnosis" value="<?php echo $visit['diagnosis']?>">
+     </td>
+     </tr>
+          
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     
+     <tr>
+     
+     <td colspan="7">
+     <strong>Registered Medications:</strong>
+    	<div class="input-group" style="width: 100%;">
+     	 <select class="form-control" id="medications_dropdown">

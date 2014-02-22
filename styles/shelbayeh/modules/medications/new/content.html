@@ -1,0 +1,17 @@
+<?php 
+
+$cid = 1;
+if(isset($_GET["categoryID"])){
+	$cid = $_GET["categoryID"];
+}
+
+if($cid == $category['id']){
+?>
+
+<option value="<?php echo $category['id']?>" selected><?php echo $category['id']?>. <?php echo $category['name']?></option>
+
+<?php } else { ?>
+
+<option value="<?php echo $category['id']?>"><?php echo $category['id']?>. <?php echo $category['name']?></option>
+
+<?php } ?>

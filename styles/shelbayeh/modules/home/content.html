@@ -1,0 +1,6 @@
+<tr>
+	<td><a href="index.php?page=visits&vid=<?php echo $visit['id']?>"><?php echo $visit["date_time"]?></a></td>
+	<td><a href="index.php?page=patients&mode=2&pid=<?php echo $visit['patient_id']?>"><?php echo $patient["name"]?></a></td>
+	<td><?php echo $visit["diagnosis"]?></td>
+	<td><?php echo $visit["treatment"]?></td>
+</tr>

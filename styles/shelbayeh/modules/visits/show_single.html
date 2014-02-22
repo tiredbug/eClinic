@@ -1,0 +1,114 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Current Visit
+        </a>
+         <small>(<?php echo $visit["date_time"]?>)</small> <small>(ID: <?php echo $visit["id"]?>)</small>
+         <small><span style="text-align: right; float: right;"><strong>Next Appointment: </strong><span class="badge"><?php if($visit["next_appointment"] == null){echo "None";}else{echo $visit["next_appointment"];}?></span>
+</span></small>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in">
+      <div class="panel-body">
+
+
+     <table style="width: 100%">
+     <tr>
+     	<td><strong>&deg;C: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["temperature"]?></button></td>
+        <td><strong>BP: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["bp"]?></button></td>
+        <td><strong>Pulse: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["pulse"]?></button></td>
+        <td><strong>RR: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["respiratory_rate"]?></button></td>
+     
+     	<td><strong>W: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["weight"]?></button></td>
+        
+        <td><strong>H: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["height"]?></button></td>
+                
+        <td><strong>BMI: </strong><button type="button" class="btn btn-info" disabled><?php echo $visit["bmi"]?></button></td>    
+     </tr>
+     
+     <tr style="height: 20px;"><td colspan="7"></td></tr>
+     <tr><td colspan="7">
+        <div class="alert alert-danger">
+            <strong>Main Complaints: </strong>
+            <br/>
+            <br/>
+            <?php if($visit["main_complaints"] == null){echo "None";}else{echo $visit["main_complaints"];}?>
+        </div>
+     </td>
+     </tr>
+
+     <tr><td colspan="7">
+        <div class="alert alert-info">
+            <strong>Physical Examination: </strong>
+            <br/>
+            <br/>
+            
+			<table class="table">
+            	<tr>
+            		<th style="width: 15%; border: 1px solid #3390C8;">Body Area</th>
+            		<th style="border: 1px solid #3390C8;">Examination</th>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Head and Face</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[0]?></td>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Heart</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[1]?></td>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Chest</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[2]?></td>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Abdomen</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[3]?></td>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Limbs</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[4]?></td>
+            	</tr>
+            	<tr>
+            		<td style="border: 1px solid #3390C8;">Others</td>
+            		<td style="border: 1px solid #3390C8;"><?php echo $visit_examination[5]?></td>
+            	</tr>
+			</table> 
+        </div>
+     </td>
+     </tr>
+     
+     <tr><td colspan="7">
+        <div class="alert alert-danger">
+            <strong>Lab Study: </strong>
+            <br/>
+            <br/>
+            <?php if($visit["lab_study"] == null){echo "None";}else{echo $visit["lab_study"];}?>
+        </div>
+     </td>
+     </tr>
+     
+     <tr><td colspan="7">
+        <div class="alert alert-success">
+            <strong>Diagnosis: </strong>
+            <br/>
+            <br/>
+            <?php if($visit["diagnosis"] == null){echo "None";}else{echo $visit["diagnosis"];}?>
+        </div>
+     </td>
+     </tr>
+     
+     <tr><td colspan="7">
+        <div class="alert alert-info">
+            <strong>Treatment: </strong>
+            <br/>
+            <br/>
+            <?php if($visit["treatment"] == null){echo "None";}else{echo $visit["treatment"];}?>
+        </div>
+     </td>
+     </tr>
+     </table>
+      </div>
+    </div>
+  </div>
+</div>

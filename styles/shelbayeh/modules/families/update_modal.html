@@ -1,0 +1,54 @@
+<form role="form" method="post" action="index.php?page=families&mode=4&status=2">
+	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Update Family</h4>
+				</div>
+      
+				<div class="modal-body"> 
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Family Information</h3>
+						</div>
+  
+						<div class="panel-body">
+							<input type="hidden" name="old_id" value="<?php echo($family['id'])?>">
+							
+							<div class="form-group">
+								<label for="inputID">ID</label>
+								<input type="number" class="form-control" id="id" name="id" value="<?php echo($family['id'])?>" required="required">
+							</div>
+  
+							<div class="form-group">
+								<label for="inputName">Name</label>
+								<input type="text" class="form-control" id="name" name="name" value="<?php echo($family['name'])?>" required="required">
+							</div>
+ 
+							<div class="form-group">
+								<label for="inputAddress">Address</label>
+								<input type="text" class="form-control" id="address" name="address" value="<?php echo($family['address'])?>">
+							</div>
+							
+							<div class="form-group">
+								<label for="inputPhoneNumber">Phone Number</label>
+								<input type="number" class="form-control" id="phone" name="phone" value="<?php echo($family['phone_number'])?>">
+							</div>
+    
+							<div class="form-group">
+								<label for="inputMobileNumber">Mobile Number</label>
+								<input type="number" class="form-control" id="mobile" name="mobile" value="<?php echo($family['mobile_number'])?>">
+							</div>
+						</div>   
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
